@@ -3,8 +3,8 @@
 <p align="center"><img alt="default design" src="doc/img/default-design.png"></p>
 
 ### Dependency
-* python packages: Jinja2, Flask, psutil, nvidia-ml-py (Python2) or nvidia-ml-py3 (Python3) 
-* no external dependency for the web page, can be deployed without internet access
+* python packages: Jinja2, Flask, psutil, nvidia-ml-py (Python2) or nvidia-ml-py3 (Python3)
+* **responsive** web design implemented with plain CSS and JavaScript, and is therefore lightweight and can be deployed without internet access
 * tested with both Python 2 and 3
 
 ### Run it
