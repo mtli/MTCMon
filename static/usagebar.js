@@ -5,9 +5,9 @@ function UsageBar() {
 	{
         var w = parseFloat(elems[i].style.width);
         if (w > 90)
-            elems[i].style.backgroundColor = "#fb4a1a";
+            elems[i].style.backgroundColor = "#F23005";
         else if(w > 60)
-            elems[i].style.backgroundColor = "#f7b733";
+            elems[i].style.backgroundColor = "#FFB812";
 	}
 }
 

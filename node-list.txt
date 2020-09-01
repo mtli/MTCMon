@@ -1,3 +1,10 @@
-gpu-node-1
-gpu-node-2
-gpu-node-3
+autobot-0-9
+autobot-0-11
+autobot-0-13
+autobot-0-15
+autobot-0-17
+autobot-0-19
+autobot-0-21
+autobot-0-23
+autobot-1-1
+autobot-1-6

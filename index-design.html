@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title itemprop="name">Cluster Resource Monitor</title>
+<title itemprop="name">Autobot Resource Monitor</title>
 <meta name="apple-mobile-web-app-title" content="ClusterMon">
 <link href="static/style.css" rel="stylesheet" type="text/css">
 <script src="static/usagebar.js"></script>
@@ -21,11 +21,53 @@
 
 <body>
 <div id="title">
-    <h1>Cluster Resource Monitor</h1>
-    <h1 id="h1small" style="display:none">Monitor</h1>
-    <div class="topicon" onclick="scrollToTop();">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 555 563.86"><path d="M.5.5h554v84H.5z"/><path d="M554 1v83H1V1h553m1-1H0v85h555V0zM334.87 293h106.52L277.5 136 113.61 293h106.52v270.86h114.74V293"/></svg>
+  <h1>
+    <div class="transformer-icon">
+      <img src="static/transformer.svg">
     </div>
+    <div class="transformer-icon transformer-eyes">
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1000 1000">
+        <defs>
+          <filter id="motion-blur-filter-0" color-interpolation-filters="sRGB" x="-500%" y="-500%" width="1000%" height="1000%" bx:preset="motion-blur 1 24 vertical">
+            <feGaussianBlur stdDeviation="0 24" edgeMode="none"/>
+          </filter>
+          <filter id="motion-blur-filter-1" color-interpolation-filters="sRGB" x="-500%" y="-500%" width="1000%" height="1000%" bx:preset="motion-blur 1 24 vertical">
+            <feGaussianBlur stdDeviation="0 24" edgeMode="none"/>
+          </filter>
+        </defs>
+        <polygon style="fill: rgb(242, 48, 5); filter: none;" points="196.84800720214844 508.1369934082031 380.7799987792969 509.1709899902344 379.74700927734375 550.5040283203125 287.781005859375 597.0029907226562 197.88099670410156 537.0700073242188"/>
+        <polygon style="fill: rgb(242, 48, 5); filter: url(#motion-blur-filter-0);" points="197.48 508.622 381.412 509.656 380.379 550.989 288.413 597.488 198.513 537.555"/>
+        <polygon style="fill: rgb(242, 48, 5); filter: none;" points="619.127 597.345 803.059 596.311 802.026 554.978 710.06 508.479 620.16 568.412" transform="matrix(-1, 0, 0, -1, 1422.186035, 1105.823975)"/>
+        <polygon style="fill: rgb(242, 48, 5); filter: url(#motion-blur-filter-1);" points="619.185 597.46 803.117 596.426 802.084 555.093 710.118 508.594 620.218 568.527" transform="matrix(-1, 0, 0, -1, 1422.302002, 1106.054016)"/>
+      </svg>
+    </div>
+    <p>Autobot Resource Monitor</p>
+  </h1>
+  <h1 id="h1small" style="display:none">
+    <div class="transformer-icon">
+      <img src="static/transformer.svg">
+    </div>
+    <div class="transformer-icon transformer-eyes">
+      <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1000 1000">
+        <defs>
+          <filter id="motion-blur-filter-0" color-interpolation-filters="sRGB" x="-500%" y="-500%" width="1000%" height="1000%" bx:preset="motion-blur 1 24 vertical">
+            <feGaussianBlur stdDeviation="0 24" edgeMode="none"/>
+          </filter>
+          <filter id="motion-blur-filter-1" color-interpolation-filters="sRGB" x="-500%" y="-500%" width="1000%" height="1000%" bx:preset="motion-blur 1 24 vertical">
+            <feGaussianBlur stdDeviation="0 24" edgeMode="none"/>
+          </filter>
+        </defs>
+        <polygon style="fill: rgb(242, 48, 5); filter: none;" points="196.84800720214844 508.1369934082031 380.7799987792969 509.1709899902344 379.74700927734375 550.5040283203125 287.781005859375 597.0029907226562 197.88099670410156 537.0700073242188"/>
+        <polygon style="fill: rgb(242, 48, 5); filter: url(#motion-blur-filter-0);" points="197.48 508.622 381.412 509.656 380.379 550.989 288.413 597.488 198.513 537.555"/>
+        <polygon style="fill: rgb(242, 48, 5); filter: none;" points="619.127 597.345 803.059 596.311 802.026 554.978 710.06 508.479 620.16 568.412" transform="matrix(-1, 0, 0, -1, 1422.186035, 1105.823975)"/>
+        <polygon style="fill: rgb(242, 48, 5); filter: url(#motion-blur-filter-1);" points="619.185 597.46 803.117 596.426 802.084 555.093 710.118 508.594 620.218 568.527" transform="matrix(-1, 0, 0, -1, 1422.302002, 1106.054016)"/>
+      </svg>
+    </div>
+    <p>Autobot</p>
+  </h1>
+  <div class="topicon" onclick="scrollToTop();">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 555 563.86"><path d="M.5.5h554v84H.5z"/><path d="M554 1v83H1V1h553m1-1H0v85h555V0zM334.87 293h106.52L277.5 136 113.61 293h106.52v270.86h114.74V293"/></svg>
+  </div>
 </div>
 <article id="content">
 <!-- Content Start -->
@@ -191,7 +233,7 @@
 </article>
 
 <footer>
-    <p>Ver 0.1.3 &nbsp;&nbsp; &#9400; Martin Li  &nbsp;&nbsp; 2018</p>
+    <p>Ver 0.1.3 &nbsp;&nbsp; &#9400; Martin Li  &nbsp;&nbsp; 2020</p>
     <p>Built upon Rohit Girdhar's GPU monitor.</p>
     <p>Feel free to email me with comments or suggestions.</p>
     <p>May the force be with you in your neural networks ;-）</p>
