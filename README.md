@@ -12,7 +12,7 @@
 2. Run `run_monitor.sh` to dispatch monitors onto listed nodes
 3. Generate `index.html` by running `python design2template.py`
 4. Run `python webserver.py <port>` to start the web service with a specified port
-5. Go to <hostname>:<port>/ and viola!
+5. Go to `<hostname>:<port>/` and viola!
 
 ### Kill monitor daemons
 Run `kill_monitor.sh`
