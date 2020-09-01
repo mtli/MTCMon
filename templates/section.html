@@ -1,0 +1,74 @@
+<section>
+	<h2>{{ machine_name }}</h2>
+	<p class="update">Updated at {{ update_time }}</p>
+	<div class="twocol">
+	<div class="leftcol">
+		<table class="systable">
+		<caption>System Stats:</caption>
+		<tbody>
+		<tr>
+			<td>CPU ({{sysdata['cores']}}C{{sysdata['threads']}}T):</td>
+			<td><div class="usagebar"><span style="width: {{sysdata['cpu_usage']}}%"></span></div></td>
+			<td>{{sysdata['cpu_usage']}}%</td>
+			<td>/scratch ({{sysdata['scratch_type']}}):</td>
+			<td>{{sysdata['scratch_used']}}GB/{{sysdata['scratch_total']}}GB</td>
+		</tr>
+		<tr>
+			<td>RAM ({{sysdata['mem_total']}}GB):</td>
+			<td><div class="usagebar"><span style="width: {{sysdata['mem_usage']}}%"></span></div></td>
+			<td>{{sysdata['mem_usage']}}%</td>
+			<td>/ssd0:</td>
+			<td>{%- if sysdata['ssd0_exist'] -%}
+					{{sysdata['ssd0_used']}}GB/{{sysdata['ssd0_total']}}GB
+				{%- else -%}
+					N/A
+				{%- endif -%}
+			</td>
+		</tr>
+		<tr>
+			<td>Swap ({{sysdata['swap_total']}}GB):</td>
+			<td><div class="usagebar"><span style="width:  {{sysdata['swap_usage']}}%"></span></div></td>
+			<td>{{sysdata['swap_usage']}}%</td>
+			<td>/ssd1:</td>
+			<td>{%- if sysdata['ssd1_exist'] -%}
+					{{sysdata['ssd1_used']}}GB/{{sysdata['ssd1_total']}}GB
+				{%- else -%}
+					N/A
+				{%- endif -%}
+			</td>
+		</tr>
+		</tbody>
+		</table>
+	</div>
+	<div class="rightcol">
+		<table class="gputable">
+		<caption>GPU Stats:</caption>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Available (MB)</th>
+				<th>Jobs</th>
+			</tr>
+		</thead>
+		<tbody>
+		{%- for gpu in gpudata %}
+			<tr>
+				<td>{{loop.index - 1}}</td>
+				<td>{{gpu['name']}}</td>
+				<td><div class="usagebar"><span style="width: {{gpu['mem_usage']}}%"></span>
+				<div>{{gpu['mem_free']}}</div></div></td>
+				<td>{%- for proc in gpu['procs'] -%}
+						{%- if loop.index > 1 -%}
+							<br/>
+						{%- endif -%}
+						{{proc[0]}} ({{proc[1]}}) &middot; {{proc[2]}} &middot; {{proc[4]}}MB &middot; {{proc[3]}}
+					{%- endfor -%}
+				</td>
+			</tr>	
+		{%- endfor %}
+		</tbody>
+		</table>
+	</div>
+	<div class="clearfloat"></div>
+</section>
