@@ -8,10 +8,10 @@
 * tested with both Python 2 and 3
 
 ### Run it
-1. Edit `node-list.txt` if neccessary and make sure you can ssh into all the listed nodes 
+1. Edit `node-list.txt` and make sure you can ssh into all the listed nodes 
 2. Run `run_monitor.sh` to dispatch monitors onto listed nodes
-3. Generate `index.html` by running `python design2template.py`
-4. Run `python webserver.py <port>` to start the web service with a specified port
+3. Generate a web page template by running `python design2template.py` (note that the final web page will be generated with the latest info upon user request)
+4. Run `python webserver.py <port>` to start the web server with a specified port
 5. Go to `<hostname>:<port>/` and viola!
 
 ### Kill monitor daemons
