@@ -3,6 +3,7 @@ from __future__ import division
 from __future__ import print_function
 
 import sys, os
+import io # for python2.7
 
 from flask import Flask
 from flask import send_from_directory
@@ -21,7 +22,7 @@ def root():
     sections = [None]*len(node_list)
     for i, node in enumerate(node_list):
         try:
-            sections[i] = open('nodestats/' + node + '.html').read()
+            sections[i] = io.open('nodestats/' + node + '.html', encoding='utf8').read()
         except Exception as e:
             print(e)
             sections[i] = render_template('section-error.html', machine_name=node)
