@@ -110,3 +110,4 @@ venv.bak/
 nodestats/
 templates/index.html
 nosync/
+share/

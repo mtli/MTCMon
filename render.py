@@ -20,12 +20,12 @@ def main():
         while 1:
             for i, node in enumerate(node_list):
                 try:
-                    sections[i] = open('/project_data/mtcmon/nodestats/' + node + '.html').read()
+                    sections[i] = open('/project_data/MTCMon/nodestats/' + node + '.html').read()
                 except Exception as e:
                     print(e)
                     sections[i] = render_template('section-error.html', machine_name=node)
             html = render_template('index.html', sections=sections)
-            io.open('/var/www/mtcmon/index.html', 'w', encoding='utf8').write(html)
+            io.open('/opt/MTCMon/share/web/index.html', 'w', encoding='utf8').write(html)
             sleep(30)
 
 if __name__ == "__main__":

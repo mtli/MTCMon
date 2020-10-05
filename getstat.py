@@ -65,7 +65,8 @@ if __name__ == "__main__":
         sysdata['threads'] = psutil.cpu_count()
         sysdata['mem_total'] = toGB(psutil.virtual_memory().total)
         sysdata['swap_total'] = toGB(psutil.swap_memory().total)
-        sysdata['scratch_type'] = 'SSD' if is_ssd('/scratch') else 'HDD'
+        sysdata['scratch_type'] = 'SSD' # if is_ssd('/scratch') else 'HDD'
+        # is_ssd doesn't work on Autobot
         scratch_usage = psutil.disk_usage('/scratch')
         sysdata['scratch_used'] = toGB(scratch_usage.used)
         sysdata['scratch_total'] = toGB(scratch_usage.total)
