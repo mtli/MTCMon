@@ -14,13 +14,16 @@ app = Flask('Dummy Flask')
 node_list = open('node-list.txt').readlines()
 node_list = [x.strip() for x in node_list] 
 
+if not os.path.isdir('/opt/MTCMon/share/web/'):
+    os.makedirs('/opt/MTCMon/share/web/')
+    
 def main():
     sections = [None]*len(node_list)
     with app.app_context():
         while 1:
             for i, node in enumerate(node_list):
                 try:
-                    sections[i] = open('/project_data/MTCMon/nodestats/' + node + '.html').read()
+                    sections[i] = open('/project_data/mtcmon/nodestats/' + node + '.html').read()
                 except Exception as e:
                     print(e)
                     sections[i] = render_template('section-error.html', machine_name=node)
