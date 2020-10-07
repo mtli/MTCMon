@@ -17,7 +17,8 @@ node_list = [x.strip() for x in node_list]
 app = Flask('Dummy Flask', root_path=abs_path)
 
 if not os.path.isdir(web_path):
-      os.makedirs(web_path)
+       os.makedirs(web_path)
+       os.symlink('/opt/MTCMon/static', '/opt/MTCMon/share/web/static')
 
 def main():
   sections = [None]*len(node_list)
