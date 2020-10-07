@@ -21,8 +21,9 @@ REFRESH_SEC = 15
 NSNAPSHOT = 5
 SNAPSHOT_INTERVAL_SEC = 1
 
-toGB = lambda x: round(x / 2**30)
-toMB = lambda x: round(x / 2**20)
+toGB = lambda x: int(round(x / 2**30))
+toMB = lambda x: int(round(x / 2**20))
+# add "int" since in Python 2 "round" returns a float instead of int
 
 thisfiledir = os.path.dirname(os.path.realpath(__file__))
 
