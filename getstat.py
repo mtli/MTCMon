@@ -162,6 +162,10 @@ if __name__ == "__main__":
             for j in range(len(procs[i])):
                 gpudata[i]['procs'][j] += (toMB(max(gpu_mem[i][j])), )
 
+            # Update 2021 for new NVIDIA driver (455.38)
+            # Filtering out zero-memory processes
+            gpudata[i]['procs'] = [p for p in gpudata[i]['procs'] if p[-1]]
+ 
         res = template.render(machine_name=machine_name,
                             update_time=time.strftime("%m-%d-%Y %H:%M:%S %Z"),
                             gpudata=gpudata,
