@@ -1,5 +1,5 @@
 <section>
-	<h2>{{ machine_name }}</h2>
+	<h2 id="{{ machine_name }}">{{ machine_name }}</h2>
 	<p class="update">Updated at {{ update_time }}</p>
 	<div class="twocol">
 	<div class="leftcol">
@@ -62,7 +62,13 @@
 						{%- if loop.index > 1 -%}
 							<br/>
 						{%- endif -%}
-						{{proc[0]}} ({{proc[1]}}) &middot; {{proc[2]}} &middot; {{proc[4]}}MB &middot; {{proc[3]}}
+						{%- if proc[4] -%}
+						<span style='color: gray'>
+						{%- endif -%}
+						{{proc[0]}} ({{proc[1]}}) &middot; {{proc[2]}} &middot; {{proc[5]}}MB &middot; {{proc[3]}}
+						{%- if proc[4] -%}
+						</span>
+						{%- endif -%}
 					{%- endfor -%}
 				</td>
 			</tr>	

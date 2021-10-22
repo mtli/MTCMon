@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title itemprop="name">Cluster Resource Monitor</title>
 <meta name="apple-mobile-web-app-title" content="ClusterMon">
-<link href="static/style.css" rel="stylesheet" type="text/css">
-<script src="static/usagebar.js"></script>
-<script src="static/scrolltotop.js"></script>
+<link href="static/style.css?v=0.1" rel="stylesheet" type="text/css">
+<script src="static/usagebar.js?v=0.1"></script>
+<script src="static/scroll.js?v=0.1"></script>
 <link rel="apple-touch-icon" sizes="180x180" href="static/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="static/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="static/favicon-16x16.png">
@@ -19,91 +19,113 @@
 <meta http-equiv="refresh" content="60">
 </head>
 
-<body>
+<!-- Add data for Javascript (scroll offset & usage bar colors) -->
+<body
+	data-top-offset="50"
+	data-ub-color1="#4abdab"
+	data-ub-color2="#f7b733"
+	data-ub-color3="#fb4a1a"
+>
 <div id="title">
-    <h1>Cluster Resource Monitor</h1>
-    <h1 id="h1small" style="display:none">Monitor</h1>
-    <div class="topicon scroll-to-top">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 555 563.86"><path d="M.5.5h554v84H.5z"/><path d="M554 1v83H1V1h553m1-1H0v85h555V0zM334.87 293h106.52L277.5 136 113.61 293h106.52v270.86h114.74V293"/></svg>
-    </div>
+	<h1>Cluster Resource Monitor</h1>
+	<h1 id="h1small" style="display:none">Monitor</h1>
+	<div class="topicon scroll-to-top">
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 555 563.86"><path d="M.5.5h554v84H.5z"/><path d="M554 1v83H1V1h553m1-1H0v85h555V0zM334.87 293h106.52L277.5 136 113.61 293h106.52v270.86h114.74V293"/></svg>
+	</div>
 </div>
-<article id="content">
+
+<article>
+<!-- ToC Start -->
+<section id="tableofcontents">
+	<h2>Quick Find</h2>
+	<div class="auto-multicol">
+	<!-- Index List Start -->
+	<ul>
+		<li><a class="scroll-to" href="#gpu-node-1">gpu-node-1</a></li>
+		<li><a class="scroll-to" href="#gpu-node-2">gpu-node-2</a></li>
+		<li><a class="scroll-to" href="#gpu-node-3">gpu-node-3</a></li>
+		<li><a class="scroll-to" href="#gpu-node-4">gpu-node-4</a></li>
+	</ul>
+	<!-- Index List End -->
+	</div>
+</section>
+<!-- ToC End -->
 <!-- Content Start -->
 <section>
 	<h2>gpu-node-1</h2>
 	<p class="update">Updated at 08-27-2020 18:35:00 EDT</p>
 	<div class="twocol">
-    <div class="leftcol">
-    	<table class="systable">
-		<caption>System Stats:</caption>
-		<tbody>
-		<tr>
-			<td>CPU (12C24T):</td>
-			<td><div class="usagebar"><span style="width: 8.4%"></span></div></td>
-			<td>8.4%</td>
-			<td>/scratch (HDD):</td>
-			<td>304GB/1024GB</td>
-		</tr>
-			<tr>
-			<td>RAM (64GB):</td>
-			<td><div class="usagebar"><span style="width: 66.6%"></span></div></td>
-			<td>66.6%</td>
-			<td>/ssd0:</td>
-			<td>20GB/1024GB</td>
-			</tr>
-			<tr>
-			<td>Swap (20GB):</td>
-			<td><div class="usagebar"><span style="width: 100%"></span></div></td>
-			<td>100%</td>
-			<td>/ssd1:</td>
-			<td>N/A</td>
-			</tr>
-		</tbody>
-		</table>
-    </div>
-    <div class="rightcol">
-    	<table class="gputable">
-		<caption>GPU Stats:</caption>
-		<thead>
-			<tr>
-				<th>ID</th>
-				<th>Name</th>
-				<th>Available (MB)</th>
-				<th>Jobs</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>0</td>
-				<td>TITAN X (Pascal)</td>
-				<td><div class="usagebar"><span style="width: 2.5%"></span>
-				<div>11924</div></div></td>
-				<td> 11181 (user1) · MATLAB · 140MB · 1w3d1h31m37s <br>
-					20478 (user1) · MATLAB · 137MB · 1w1d7h16m23s </td>
-			</tr>
-			<tr>
-				<td>1</td>
-				<td>TITAN X (Pascal)</td>
-				<td><div class="usagebar"><span style="width: 25%"></span>
-				<div>9283</div></div></td>
-				<td>25847 (user2) · test_v1 · 2919MB · 16h7m48s </td>
-			</tr>
-			<tr>
-				<td>2</td>
-				<td>TITAN X (Pascal)</td>
-				<td><div class="usagebar"><span style="width: 97.4%"></span>
-				<div>318</div></div></td>
-				<td>20490 (user1) · python · 11870MB · 1w1d7h16m33s</td>
-			</tr>
-			<tr>
-				<td>3</td>
-				<td>TITAN X (Pascal)</td>
-				<td><div class="usagebar"><span style="width: 0%"></span><div>12189</div></div></td>
-				<td>&nbsp;</td>
-			</tr>
-		</tbody>
-		</table>
-    </div>
+		<div class="leftcol">
+			<table class="systable">
+				<caption>System Stats:</caption>
+				<tbody>
+				<tr>
+					<td>CPU (12C24T):</td>
+					<td><div class="usagebar"><span style="width: 8.4%"></span></div></td>
+					<td>8.4%</td>
+					<td>/scratch (HDD):</td>
+					<td>304GB/1024GB</td>
+				</tr>
+					<tr>
+					<td>RAM (64GB):</td>
+					<td><div class="usagebar"><span style="width: 66.6%"></span></div></td>
+					<td>66.6%</td>
+					<td>/ssd0:</td>
+					<td>20GB/1024GB</td>
+					</tr>
+					<tr>
+					<td>Swap (20GB):</td>
+					<td><div class="usagebar"><span style="width: 100%"></span></div></td>
+					<td>100%</td>
+					<td>/ssd1:</td>
+					<td>N/A</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="rightcol">
+			<table class="gputable">
+				<caption>GPU Stats:</caption>
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Name</th>
+						<th>Available (MB)</th>
+						<th>Jobs</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>0</td>
+						<td>TITAN X (Pascal)</td>
+						<td><div class="usagebar"><span style="width: 2.5%"></span>
+						<div>11924</div></div></td>
+						<td> 11181 (user1) · MATLAB · 140MB · 1w3d1h31m37s <br>
+							20478 (user1) · MATLAB · 137MB · 1w1d7h16m23s </td>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td>TITAN X (Pascal)</td>
+						<td><div class="usagebar"><span style="width: 25%"></span>
+						<div>9283</div></div></td>
+						<td>25847 (user2) · test_v1 · 2919MB · 16h7m48s </td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>TITAN X (Pascal)</td>
+						<td><div class="usagebar"><span style="width: 97.4%"></span>
+						<div>318</div></div></td>
+						<td>20490 (user1) · python · 11870MB · 1w1d7h16m33s</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>TITAN X (Pascal)</td>
+						<td><div class="usagebar"><span style="width: 0%"></span><div>12189</div></div></td>
+						<td>&nbsp;</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
 	<div class="clearfloat"></div>
 </section>
@@ -111,76 +133,76 @@
 <section>
 	<h2>gpu-node-2</h2>
 	<p class="update">Updated at 08-27-2020 18:35:00 EDT</p>
-  <div class="twocol">
-    <div class="leftcol">
-      <table class="systable">
-    <caption>System Stats:</caption>
-    <tbody>
-    <tr>
-      <td>CPU (24C48T):</td>
-      <td><div class="usagebar"><span style="width: 2.1%"></span></div></td>
-      <td>2.1%</td>
-      <td>/scratch (SDD):</td>
-      <td>549GB/2048GB</td>
-    </tr>
-      <tr>
-      <td>RAM (256GB):</td>
-      <td><div class="usagebar"><span style="width: 3.6%"></span></div></td>
-      <td>3.6%</td>
-      <td>/ssd0:</td>
-      <td>N/A</td>
-      </tr>
-      <tr>
-      <td>Swap (20GB):</td>
-      <td><div class="usagebar"><span style="width: 0.0%"></span></div></td>
-      <td>0.0%</td>
-      <td>/ssd1:</td>
-      <td>N/A</td>
-      </tr>
-    </tbody>
-    </table>
-    </div>
-    <div class="rightcol">
-      <table class="gputable">
-        <caption>GPU Stats:</caption>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Available (MB)</th>
-            <th>Jobs</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>0</td>
-            <td>GeForce RTX 2080 Ti</td>
-            <td><div class="usagebar"><span style="width: 0%"></span><div>10979</div></div></td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>GeForce RTX 2080 Ti </td>
-            <td><div class="usagebar"><span style="width: 0%"></span><div>10979</div></div></td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>GeForce RTX 2080 Ti </td>
-            <td><div class="usagebar"><span style="width: 0%"></span><div>10979</div></div></td>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>GeForce RTX 2080 Ti</td>
-            <td><div class="usagebar"><span style="width: 0%"></span><div>10979</div></div></td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
+	<div class="twocol">
+		<div class="leftcol">
+			<table class="systable">
+		<caption>System Stats:</caption>
+		<tbody>
+		<tr>
+			<td>CPU (24C48T):</td>
+			<td><div class="usagebar"><span style="width: 2.1%"></span></div></td>
+			<td>2.1%</td>
+			<td>/scratch (SDD):</td>
+			<td>549GB/2048GB</td>
+		</tr>
+			<tr>
+			<td>RAM (256GB):</td>
+			<td><div class="usagebar"><span style="width: 3.6%"></span></div></td>
+			<td>3.6%</td>
+			<td>/ssd0:</td>
+			<td>N/A</td>
+			</tr>
+			<tr>
+			<td>Swap (20GB):</td>
+			<td><div class="usagebar"><span style="width: 0.0%"></span></div></td>
+			<td>0.0%</td>
+			<td>/ssd1:</td>
+			<td>N/A</td>
+			</tr>
+		</tbody>
+		</table>
+		</div>
+		<div class="rightcol">
+			<table class="gputable">
+				<caption>GPU Stats:</caption>
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Name</th>
+						<th>Available (MB)</th>
+						<th>Jobs</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>0</td>
+						<td>GeForce RTX 2080 Ti</td>
+						<td><div class="usagebar"><span style="width: 0%"></span><div>10979</div></div></td>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td>GeForce RTX 2080 Ti </td>
+						<td><div class="usagebar"><span style="width: 0%"></span><div>10979</div></div></td>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>GeForce RTX 2080 Ti </td>
+						<td><div class="usagebar"><span style="width: 0%"></span><div>10979</div></div></td>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>GeForce RTX 2080 Ti</td>
+						<td><div class="usagebar"><span style="width: 0%"></span><div>10979</div></div></td>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>
 </div>
-  </div>
-  <div class="clearfloat"></div>
+	</div>
+	<div class="clearfloat"></div>
 </section>
 
 <section>
@@ -191,10 +213,10 @@
 </article>
 
 <footer>
-    <p>Ver 0.1.4 &nbsp;&nbsp; &#9400; Martin Li  &nbsp;&nbsp; 2021</p>
-    <p>Built upon Rohit Girdhar's GPU monitor.</p>
-    <p>Feel free to email me with comments or suggestions.</p>
-    <p>May the force be with you in your neural networks ;-）</p>
+	<p>Ver 0.3.0 &nbsp;&nbsp; &#9400; Martin Li  &nbsp;&nbsp; 2021</p>
+	<p>Built upon Rohit Girdhar's GPU monitor.</p>
+	<p>Feel free to email me with comments or suggestions.</p>
+	<p>May the force be with you in your neural networks ;-）</p>
 </footer>
 
 </body>
