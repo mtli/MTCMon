@@ -62,13 +62,7 @@
 						{%- if loop.index > 1 -%}
 							<br/>
 						{%- endif -%}
-						{%- if proc[4] -%}
-						<span style='color: gray'>
-						{%- endif -%}
-						{{proc[0]}} ({{proc[1]}}) &middot; {{proc[2]}} &middot; {{proc[5]}}MB &middot; {{proc[3]}}
-						{%- if proc[4] -%}
-						</span>
-						{%- endif -%}
+						{{proc[0]}} ({{proc[1]}}) &middot; {{proc[2]}} &middot; {{proc[4]}}MB &middot; {{proc[3]}}
 					{%- endfor -%}
 				</td>
 			</tr>	

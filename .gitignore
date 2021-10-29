@@ -108,4 +108,5 @@ venv.bak/
 
 # custom
 templates/index.html
+index.html
 nosync/
