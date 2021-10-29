@@ -107,7 +107,6 @@ venv.bak/
 .vs
 
 # custom
-nodestats/
 templates/index.html
 nosync/
 share/

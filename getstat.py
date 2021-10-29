@@ -29,7 +29,7 @@ thisfiledir = os.path.dirname(os.path.realpath(__file__))
 
 def is_ssd(path):
     return subprocess \
-        .check_output([os.path.join(thisfiledir, 'detectSSD.sh'), path]) \
+        .check_output(['sh', os.path.join(thisfiledir, 'detectSSD.sh'), path]) \
         .decode('utf-8')[0] == '1'
         
 def getprocinfo(pid):
@@ -165,7 +165,7 @@ if __name__ == "__main__":
             # Update 2021 for new NVIDIA driver (455.38)
             # Filtering out zero-memory processes
             gpudata[i]['procs'] = [p for p in gpudata[i]['procs'] if p[-1]]
- 
+            
         res = template.render(machine_name=machine_name,
                             update_time=time.strftime("%m-%d-%Y %H:%M:%S %Z"),
                             gpudata=gpudata,
