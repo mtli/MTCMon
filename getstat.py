@@ -11,7 +11,9 @@ import io # for python2.7
 
 import psutil
 import jinja2
-from pynvml import *
+from pynvml import nvmlInit, nvmlDeviceGetCount, \
+    nvmlDeviceGetHandleByIndex, nvmlDeviceGetName, \
+    nvmlDeviceGetMemoryInfo, nvmlDeviceGetComputeRunningProcesses \
 
 from humanize_time import humanize_time
 
@@ -32,8 +34,7 @@ def is_ssd(path):
         .check_output(['sh', os.path.join(thisfiledir, 'detectSSD.sh'), path]) \
         .decode('utf-8')[0] == '1'
         
-def getprocinfo(pid):
-    P = psutil.Process(pid)
+def getprocinfo(P):
     cmd = P.name() or '<unknown>'
     user = P.username() or '<unknown>'
     runtime = humanize_time(time.time() - P.create_time())
@@ -87,8 +88,8 @@ if __name__ == "__main__":
         else:
             sysdata['ssd1_exist'] = False
 
-        procs = []
-        gpu_error = [False]*deviceCount
+        procs = deviceCount*[None]
+        gpu_error = deviceCount*[False]
         for i in range(deviceCount):
             try:
                 handle = nvmlDeviceGetHandleByIndex(i)
@@ -100,8 +101,18 @@ if __name__ == "__main__":
                 gpudata[i]['mem_total'] = toMB(memInfo.total)
                 gpudata[i]['mem_usage'] = memInfo.used/memInfo.total*100
 
-                procs.append(nvmlDeviceGetComputeRunningProcesses(handle))
-                gpudata[i]['procs'] = [(p.pid, ) + getprocinfo(p.pid) for p in procs[i]]
+                procs_prefilter = nvmlDeviceGetComputeRunningProcesses(handle)
+                # for unknown reasons, nvmlDeviceGetComputeRunningProcesses
+                # sometimes returns nonexistent processes on 3090 GPUs
+                procs[i] = []
+                gpudata[i]['procs'] = []
+                for p in procs_prefilter:
+                    try:
+                        P = psutil.Process(p.pid)
+                        procs[i].append(p)
+                        gpudata[i]['procs'].append((p.pid, ) + getprocinfo(P))
+                    except psutil.NoSuchProcess:
+                        pass
             except Exception as e:
                 gpu_error[i] = True
                 print('Unable to access GPU device (id: %d)' % i)
