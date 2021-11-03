@@ -227,6 +227,7 @@ table.gputable {
 }
 
 .gputable thead tr {
+	color: #F2F2F2;
 	background: #1E3E59;
 	height: 2em;
 }
