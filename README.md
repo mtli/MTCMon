@@ -36,7 +36,7 @@ Run `./kill_monitor.sh && ./run_monitor.sh` on the main node.
 Find the error log here: `/tmp/monitor-<node name>.log`
 
 ## Themes
-Currently there are two themes:
+Currently, there are two themes:
 
 ![#f7b733](https://via.placeholder.com/15/f7b733/000000?text=+) Yellow (default)
 
