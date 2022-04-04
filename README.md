@@ -1,5 +1,5 @@
 # MTCMon
-A light-weight GPU cluster resource monitor.
+A light-weight web-based resource monitor for GPU clusters.
 
 <p align="center"><img alt="teaser" src="doc/img/teaser.png"></p>
 
@@ -8,9 +8,9 @@ A light-weight GPU cluster resource monitor.
 - Responsive web design implemented with plain CSS and JavaScript, and is therefore lightweight
 - Python-based with few dependencies
 - Easy deployment without root privilege or Internet access
-- Works for both centralized and distributed clusters
+- Work for both centralized and distributed clusters
 - Quick access bar designed for large clusters
-- Already deployed at labs in top universities like CMU, UC Berkeley, UT Austin and RWTH Aachen
+- Already been deployed at labs in top universities like CMU, UC Berkeley, UT Austin and RWTH Aachen
 
 ## System requirement
 The only requirement is that all nodes should be SSH-able from one of the nodes.
@@ -37,5 +37,7 @@ Find the error log here: `/tmp/monitor-<node name>.log`
 
 ## Themes
 Currently there are two themes:
+
 ![#f7b733](https://via.placeholder.com/15/f7b733/000000?text=+) Yellow (default)
+
 ![#2477bf](https://via.placeholder.com/15/2477bf/000000?text=+) Dark blue (checkout the `autobot` branch for this)
