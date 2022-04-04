@@ -41,3 +41,7 @@ Currently, there are two themes:
 ![#f7b733](https://via.placeholder.com/15/f7b733/000000?text=+) Yellow (default)
 
 ![#2477bf](https://via.placeholder.com/15/2477bf/000000?text=+) Dark blue (checkout the `autobot` branch for this)
+
+## Acknowledgement
+The initial prototype of this project is developed by my awesome labmate [Rohit Girdhar](https://rohitgirdhar.github.io/).
+
