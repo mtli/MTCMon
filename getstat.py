@@ -5,7 +5,7 @@ from __future__ import print_function
 import sys
 import os
 import time
-import collections
+import pickle
 import subprocess
 import io # for python2.7
 
@@ -196,4 +196,7 @@ if __name__ == "__main__":
                             sysdata=sysdata)
         with io.open(os.path.join(outdir, machine_name + '.html'), 'w', encoding='utf8') as fout:
             fout.write(res)
+        # also dump the stats to a pickle file for other applications to parse
+        with io.open(os.path.join(outdir, machine_name + '.pkl'), 'wb') as fout:
+            pickle.dump((sysdata, gpudata), fout)
         time.sleep(REFRESH_SEC)
