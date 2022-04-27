@@ -29,6 +29,18 @@ toMB = lambda x: int(round(x / 2**20))
 
 thisfiledir = os.path.dirname(os.path.realpath(__file__))
 
+def is_vniced(process):
+    """Check if this process, or any of its parents, are vnice'd."""
+    x = process
+    user = process.username()
+    iter_count = 0
+    while x.pid != 1 and x.username() == user and iter_count < 10:
+        iter_count += 1
+        if os.path.isfile(f'/tmp/terminator/{user}-{x.pid}'):
+            return True
+        x = x.parent()
+    return False
+
 def is_ssd(path):
     return subprocess \
         .check_output(['sh', os.path.join(thisfiledir, 'detectSSD.sh'), path]) \
@@ -37,8 +49,9 @@ def is_ssd(path):
 def getprocinfo(P):
     cmd = P.name() or '<unknown>'
     user = P.username() or '<unknown>'
+    vniced = is_vniced(P)
     runtime = humanize_time(time.time() - P.create_time())
-    return (user, cmd, runtime)
+    return (user, cmd, runtime, vniced)
 
 if __name__ == "__main__":
     machine_name = sys.argv[1]
