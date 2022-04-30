@@ -36,7 +36,7 @@ def is_vniced(process):
     iter_count = 0
     while x.pid != 1 and x.username() == user and iter_count < 10:
         iter_count += 1
-        if os.path.isfile(f'/tmp/terminator/{user}-{x.pid}'):
+        if os.path.isfile('/tmp/terminator/%s-%d' % (user, x.pid)):
             return True
         x = x.parent()
     return False
